@@ -1,5 +1,7 @@
 
 
+import java.util.Scanner;
+
 import static java.lang.Math.*;
 import static java.util.Arrays.*;
 
@@ -14,7 +16,7 @@ public class SegmentTree {
     void build(long[] a, int n) {
         this.a = copyOf(a, n);
         this.n = n;
-        segTree = new long[n * 4 + 1613];
+        segTree = new long[n * 4];
         build(1, 0, n - 1);
     }
 
@@ -59,4 +61,18 @@ public class SegmentTree {
         }
     }
 
+    public void solve() {
+        n = 6;
+        a = new long[]{2,7,6,4,1,3};
+        int m = 5;
+        build(a,n);
+        for (int i = 0; i < m; i++) {
+            System.out.println(sum(1,4));
+            upd(i,3);
+        }
+    }
+
+    public static void main(String[] args) {
+        new SegmentTree().solve();
+    }
 }
